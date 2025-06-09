@@ -1,0 +1,21 @@
+mixed-port: 7890
+allow-lan: false
+external-controller: 127.0.0.1:64797
+secret: c32d3ee6-9231-4125-bc29-4669cd7370d6
+proxies:
+  - name: "socks"
+    type: socks5
+    server: 192.168.16.1
+    port: 18889
+    # username: username
+    # password: password
+    # tls: true
+    # skip-cert-verify: true
+    # udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - socks
+rules:
+  - "MATCH,Proxy"
